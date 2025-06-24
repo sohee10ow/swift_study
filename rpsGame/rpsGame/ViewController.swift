@@ -73,20 +73,43 @@ class ViewController: UIViewController {
         }
         switch myChoice {
         case .rock :
-            comImageView.image = #imageLiteral(resourceName: "ready")
-            comChoiceLable.text = "바위"
+            myImageView.image = #imageLiteral(resourceName: "ready")
+            myChoiceLable.text = "바위"
         case .paper :
-            comImageView.image = #imageLiteral(resourceName: "paper")
-            comChoiceLable.text = "보"
+            myImageView.image = #imageLiteral(resourceName: "paper")
+            myChoiceLable.text = "보"
         case .scissor :
-            comImageView.image = #imageLiteral(resourceName: "scissors")
-            comChoiceLable.text = "가위"
+            myImageView.image = #imageLiteral(resourceName: "scissors")
+            myChoiceLable.text = "가위"
         }
         
-        if(mychoice = Rps.rock) {
-            comChoice = Rps.paper
-            
+        if myChoice == Rps.rock {
+            if comChoice == Rps.paper {
+                mainLable.text = "졌다"
+            } else if comChoice == Rps.scissor {
+                mainLable.text = "이겼다"
+            } else {
+                mainLable.text = "비겼다"
+            }
+        } else if myChoice == Rps.rock {
+            if comChoice == Rps.paper {
+                mainLable.text = "졌다"
+            } else if comChoice == Rps.scissor {
+                mainLable.text = "이겼다"
+            } else {
+                mainLable.text = "비겼다"
+            }
+        } else {
+            if comChoice == Rps.paper {
+                mainLable.text = "이겼다"
+            } else if comChoice == Rps.scissor {
+                mainLable.text = "비겼다"
+            } else {
+                mainLable.text = "졌다"
+            }
         }
+        
+        
         
         
         
@@ -99,6 +122,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
+        comImageView.image = #imageLiteral(resourceName: "rock")
+        myImageView.image = #imageLiteral(resourceName: "rock")
+        
+        comChoiceLable.text = "준비"
+        myChoiceLable.text = "준비"
+        mainLable.text = "선택하세요"
+        
+        comChoice = Rps(rawValue: Int.random(in: 0...2))!
+        
         //초기화
         //1) 컴퓨터 -> 준비상태로 이미지 뷰로 돌아감
         //2) 컴퓨터 -> 레이블 준비상태로 돌아감
