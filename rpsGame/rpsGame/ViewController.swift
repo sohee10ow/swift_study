@@ -22,6 +22,24 @@ class ViewController: UIViewController {
     var myChoice: Rps = .rock
     var comChoice: Rps = Rps(rawValue: Int.random(in: 0...2))!
     
+    
+    
+    //UIViewController의 뷰가 메모리에 로드된 직후에 호출되는 메소드
+    //한번만 호출됨 (뷰가 메모리에서 내려갔다 올라와도 viewDidLoad는 다시 호출되지 않음)
+    //UI 초기화, 데이터 설정, 뷰구성등에 적절
+    
+    //생명 주기
+    //init() → loadView() → viewDidLoad() → viewWillAppear() → viewDidAppear()
+    
+    
+    //UI 요소 초기화(UILable, UIButton 등)
+    //테이블 뷰/컬렉션 뷰 설정
+    //네트워크 호출 시작
+    //데이터 바인딩
+    //서브뷰 추가 등
+    
+    //뷰가 화면에 나타나기 전이라 애니메이션이나 사용자와의 상호 작용은 보통 하지 않음.
+    //뷰의 사이즈나 레이아웃 관련 작업은 viewDidLayoutSubviews 또는 viewWillLayoutSubviews 쪽이 더 적절할 수 있음
     override func viewDidLoad() {
         super.viewDidLoad()
         //1) 첫번째/두번째 이미지 뷰에 준비 (묵) 이미지를 띄워야함
